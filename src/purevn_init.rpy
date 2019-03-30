@@ -1,21 +1,29 @@
-init -1 python:
-    purevn = True
-    purevn_choose_outcome = False
-    purevn_sola_holo = False
+init python:
+    purevn = False
+    purevn_setup = False
+    purevn_choice_outcome = False
+    purevn_asaga_get_present = False
+    purevn_maray_get_present = False
+    purevn_ava_get_present = False
+    purevn_chigara_get_present = False
+    purevn_sola_get_present = False
+    purevn_sola_get_holo = False
     purevn_seen_count_before = 0
     purevn_seen_count_after = 0
 
+    # decision4
+    decision_extra_2 = False
 
 label purevn_full_stats:
     # Full stats
-    $ stat_fitness = 100
+    $ stat_fitness = 500
     $ stat_intelligence = 500
-    $ stat_charisma = 200
+    $ stat_charisma = 500
     $ stat_stress = 0
-    $ stat_money = 200
-    $ stat_luck = 100
+    $ stat_money = 500
+    $ stat_luck = 500
     $ stat_grade = 100
-    $ stat_prestige = 100
+    #$ stat_prestige = 500
     $ stat_homework = 0
     
     $ stat_kendo_member = 100
@@ -37,3 +45,7 @@ label purevn_full_stats:
     $ affection_chigara = 500
     $ affection_maray = 500
 
+    # Force Waifu Mode
+    $ difficulty = 0
+
+    return

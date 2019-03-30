@@ -23,8 +23,12 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+[Bb]uild/
+
+[Pp]review/[Uu]nused/
 
 sunrider_academy/
+deploydir.txt
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

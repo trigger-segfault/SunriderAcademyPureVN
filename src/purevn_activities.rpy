@@ -1,4 +1,5 @@
 init python:
+    # PureVN Activities Override
     config.label_overrides['act_class'] = 'purevn_act_class'
     config.label_overrides['act_class_retry'] = 'purevn_act_class_retry'
     config.label_overrides['act_exam'] = 'purevn_act_exam'
@@ -827,6 +828,12 @@ label purevn_kendo_recruit_retry:
         
         scene bg courtyard_day with dissolve
         
+    if purevn == True:
+        if recruitmentday == False:
+            $ hour += 1
+        window show
+        return
+
     call diceroll from _call_diceroll_6_purevn
 
     $ tobeat = 20 + stat_stress + stat_kendo_member*10 - (stat_kendo_prestige/1.5) - stat_charisma
@@ -1161,6 +1168,12 @@ label purevn_swim_recruit_retry:
     if hour > 5:
         scene bg courtyard_evening with dissolve
     
+    if purevn == True:
+        if recruitmentday == False:
+            $ hour += 1
+        window show
+        return
+
     call diceroll from _call_diceroll_8_purevn
 
     $ tobeat = 20 + stat_stress + stat_swim_member*10 - (stat_swim_prestige/1.5) - stat_charisma
@@ -1445,6 +1458,12 @@ label purevn_science_recruit_retry:
         scene bg courtyard_evening with dissolve
 
     window hide
+
+    if purevn == True:
+        if recruitmentday == False:
+            $ hour += 1
+        window show
+        return
 
     call diceroll from _call_diceroll_10_purevn
 
@@ -2065,17 +2084,27 @@ label purevn_act_afterschool:
         if day == 4 or day == 7:
             jump library_tutor
     
-    if ((month > 4) or (month == 4 and week > 1) or (month == 4 and week == 1 and day > 4)) and ((affection_sola >= 50 and "m3w3_eldersday_shrine" in seen_labels and "m3w1_solaholo" in seen_labels) or (affection_chigara >= 50 and "m3w4_lynn_lab" in seen_labels) or (affection_asaga >= 50 and "m4_asagaafterbirthday" in seen_labels) or (affection_ava >= 60 and "m3w5_incident_councilroom2" in seen_labels)) and ("m4_solastart" not in seen_labels and "m3w4_afterlab" not in seen_labels and "m4_asagamobchase" not in seen_labels and "m4_avastart" not in seen_labels):
-        
-        window hide
-        
-        scene bg campusmap
-        show screen purevn_route_map
-        with dissolve
-        
-        pause
-
     if purevn == True:
+        if (
+            (month > 4) or (month == 4 and (week > 1 or (week == 1 and day > 4)))
+        ) and (
+            (affection_sola >= 50 and "m3w3_eldersday_shrine" in seen_labels and "m3w1_solaholo" in seen_labels) or
+            (affection_chigara >= 50 and "m3w4_lynn_lab" in seen_labels) or
+            (affection_asaga >= 50 and "m4_asagaafterbirthday" in seen_labels) or
+            (affection_ava >= 60 and "m3w5_incident_councilroom2" in seen_labels)
+        ) and (
+            "m4_solastart" not in seen_labels and
+            "m3w4_afterlab" not in seen_labels and
+            "m4_asagamobchase" not in seen_labels and
+            "m4_avastart" not in seen_labels
+        ):
+            window hide
+            
+            scene bg campusmap
+            show screen purevn_route_map
+            with dissolve
+            
+            pause
         jump purevn_choose_afterschool
         
     window hide
@@ -2258,6 +2287,11 @@ label purevn_job_museum_retry:
     if hour > 5:
         
         scene bg museum_night with dissolve
+
+    if purevn == True:
+        $ hour += 1
+        window show
+        return
 
     call diceroll from _call_diceroll_16_purevn
         
@@ -2482,6 +2516,11 @@ label purevn_job_arcade_retry:
         
     scene bg arcade with dissolve
 
+    if purevn == True:
+        $ hour += 1
+        window show
+        return
+
     call diceroll from _call_diceroll_18_purevn
 
     $ tobeat = 30 + (stat_stress*1.5) - (times_arcade/2)
@@ -2684,6 +2723,11 @@ label purevn_job_park_retry:
         
         scene bg park_evening with dissolve
 
+    if purevn == True:
+        $ hour += 1
+        window show
+        return
+
     call diceroll from _call_diceroll_20_purevn
 
     $ tobeat = 30 + stat_stress - (stat_fitness/2)
@@ -2811,6 +2855,11 @@ label purevn_job_shrine_retry:
     if hour > 5:
         
         scene bg shrine_evening with dissolve
+
+    if purevn == True:
+        $ hour += 1
+        window show
+        return
 
     call diceroll from _call_diceroll_22_purevn
 
@@ -3041,6 +3090,11 @@ label purevn_job_shop_retry:
     if hour > 5:
         
         scene bg city_night with dissolve
+
+    if purevn == True:
+        $ hour += 1
+        window show
+        return
 
     call diceroll from _call_diceroll_24_purevn
 
@@ -3529,7 +3583,7 @@ label purevn_kendorounds:
         jump kendorounds
 
 label purevn_kendorounds_end:
-    call purevn_choose_outcome_win
+    call purevn_choice_outcome_win from _call_kendorounds_purevn_choice_outcome_win
 
     stop music fadeout 1.5
     hide competition_kendo
@@ -3703,7 +3757,7 @@ label purevn_swimrounds:
         jump swimrounds
 
 label purevn_swimrounds_end:
-    call purevn_choose_outcome_win
+    call purevn_choice_outcome_win from _call_swimrounds_purevn_choice_outcome_win
     
     stop music fadeout 1.5
     hide competition_swim
@@ -3859,7 +3913,7 @@ label purevn_sciencerounds:
         jump sciencerounds
         
 label purevn_sciencerounds_end:
-    call purevn_choose_outcome_win
+    call purevn_choice_outcome_win from _call_sciencerounds_purevn_choice_outcome_win
     
     stop music fadeout 1.5
     hide sciencecompetition
@@ -3932,6 +3986,7 @@ label purevn_sciencerounds_end:
     return
     
 label purevn_examresults_calc:
+    scene bg classroom with dissolve
     
     $ luck_mod = (stat_luck/2)-((difficulty-2)*8)
     
@@ -4014,6 +4069,7 @@ label purevn_examresults_calc:
     return
 
 label purevn_finalexamresults_calc:
+    scene bg classroom with dissolve
     
     $ luck_mod = (stat_luck/2)-((difficulty-2)*8)
     
@@ -4076,7 +4132,3 @@ label purevn_finalexamresults_calc:
         jump badend_flunk
 
     return
-
-
-
-    

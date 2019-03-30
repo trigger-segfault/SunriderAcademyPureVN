@@ -8,15 +8,26 @@
 		"[json]": {
 			"editor.insertSpaces": true,
 			"editor.tabSize": 2,
+			"editor.useTabStops": true
 		},
 		"[python]": {
 			"editor.insertSpaces": true,
 			"editor.tabSize": 4,
+			"editor.useTabStops": true
 		},
 		"[renpy]": {
 			"editor.insertSpaces": true,
 			"editor.tabSize": 4,
+			"editor.useTabStops": true
 		},
-		"search.useIgnoreFiles": false
+		"search.useIgnoreFiles": false,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/build": true
+		}
 	}
 }

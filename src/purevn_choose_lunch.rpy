@@ -1,6 +1,16 @@
 label purevn_choose_lunch:
 
-    call purevn_full_stats
+    call purevn_full_stats from _call_lunch_purevn_full_stats
+
+    # Always eat in the classroom after aquiring lovebento
+    if lovebento == True and "asagaluncheat" not in seen_labels and "acceptasagalunch" in seen_labels:
+        jump eat_classroom
+    if lovebento == True and "chigaraluncheat" not in seen_labels and "acceptchigarafood" in seen_labels:
+        jump eat_classroom
+
+    # Make sure to give Sola her Holo if you bought one
+    if hologift_check():
+        jump purevn_give_hologift
 
     if month == 1:
         if week == 1:
@@ -11,10 +21,6 @@ label purevn_choose_lunch:
         if week == 4:
             jump eat_courtyard
     if month == 2:
-        if "m2w5_librarysola" in seen_labels:
-            $ haveitem_holo = True
-            $ gift_item = 2
-            jump m3w1_solaholo
         if week == 4:
             # Any is valid
             if day % 3 == 0:
@@ -27,10 +33,36 @@ label purevn_choose_lunch:
         if week == 4:
             jump eat_courtyard
 
+    # Sola Route
+    if "m4_solastart" in seen_labels:
+        if month == 4:
+            jump eat_courtyard
 
+    # Chigara Route
+    # No required lunches
+    #if "m3w4_afterlab" in seen_labels:
 
+    # Asaga Route
+    # No required lunches
+    #if "m4_asagamobchase" in seen_labels:
 
+    # Ava Route
+    # It's all automatic!
+    #if "m4_avastart" in seen_labels:
 
+    # Random lunch
+    jump purevn_random_lunch
 
-    # Default location
-    jump eat_cafeteria
+label purevn_random_lunch:
+    $ purevn_rng_start = 1
+    if lovebento == True:
+        $ purevn_rng_start = 0
+
+    $ purevn_rng = renpy.random.randint(purevn_rng_start,2)
+
+    if purevn_rng == 0:
+        jump eat_classroom
+    if purevn_rng == 1:
+        jump eat_courtyard
+    if purevn_rng == 2:
+        jump eat_cafeteria
