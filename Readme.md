@@ -24,7 +24,7 @@ To deploy the Ren'Py script(s) to an installation directory, create `deploydir.t
 
 |Switch|Action|
 |:--|:--|
-|`-d`|Cleanup and Deploy compiled `purevn.rpy`|
+|`-d`|Cleanup and Deploy combined `purevn.rpy`|
 |`-dbg`|Cleanup and Deploy source `purevn_*.rpy` files|
 |`-c`|Cleanup and remove `purevn.rpy` from `build/`|
 
