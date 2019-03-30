@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"[json]": {
+			"editor.insertSpaces": true,
+			"editor.tabSize": 2,
+		},
+		"[python]": {
+			"editor.insertSpaces": true,
+			"editor.tabSize": 4,
+		},
+		"[renpy]": {
+			"editor.insertSpaces": true,
+			"editor.tabSize": 4,
+		},
+		"search.useIgnoreFiles": false
+	}
+}
