@@ -6,7 +6,7 @@
 [![Creation Date](https://img.shields.io/badge/created-march%202019-A642FF.svg?style=flat)](https://github.com/trigger-death/SunriderAcademyPureVN/commit/26464c07eab6544c8f300f8ae2965e5acfa535f4)
 [![Discord](https://img.shields.io/discord/436949335947870238.svg?style=flat&logo=discord&label=chat&colorB=7389DC&link=https://discord.gg/vB7jUbY)](https://discord.gg/vB7jUbY)
 
-PureVN is a mod to *optionally* eliminate all non-visual novel elements in Sunrider Academy for a nice, smooth, non-carpal-tunnel-inducing story.
+PureVN is a mod to *optionally* eliminate all non-visual novel elements in Sunrider Academy for a nice, smooth, *non-carpal-tunnel-inducing* story.
 
 <p align="center"><img alt="Sunrider Academy PureVN Mod Logo" src="preview/purevn_logo.png"></p>
 
