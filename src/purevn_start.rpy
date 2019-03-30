@@ -20,7 +20,7 @@ label purevn_start:
 
     #tut "The PureVN mod is present. Enabling PureVN will automate all non-scripted activity choices."
     #tut "Enabling PureVN & Choice Outcome, will allow you to decide competition and election outcomes."
-    tut "The PureVN mod is present. Enabling PureVN will automate all non-scripted activity choices.\n\nWhile normally victory is set in stone, enabling Choice Outcome will allow you to decide competition and election outcomes."
+    tut "The PureVN Mod ([purevn_version]) is present. Enabling PureVN Mode will automate all non-scripted activity choices.\n\nWhile normally victory is set in stone, enabling Choice Outcome will allow you to decide competition and election outcomes."
     #TODO: Exam outcomes in the future?
 
     $ choice1_text = "Normal Mode"

@@ -1,4 +1,5 @@
 init python:
+    purevn_version = 'v0.1.0.0';
     purevn = False
     purevn_setup = False
     purevn_choice_outcome = False
