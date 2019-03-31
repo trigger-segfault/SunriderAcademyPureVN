@@ -38,9 +38,14 @@ if definefiles == True:
 else:
     # Just get the filenames and append them in loaded order
     filenames = os.listdir(srcdir)
+    # Ignore directories
+    filenames = [f for f in filenames if os.path.isfile(os.path.join(srcdir, f))]
+    # Make sure this is a purevn source file
+    filenames = [f for f in filenames if f.startswith('purevn_') and f.endswith('.rpy')]
 
-#filenames = [f for f in filenames if f != initfile]
-#filenames.insert(0, initfile)
+# Insert init file first for clarity
+filenames = [f for f in filenames if f != initfile]
+filenames.insert(0, initfile)
 
 if clean == True:
     if os.path.isfile(outpath):

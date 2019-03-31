@@ -1,5 +1,5 @@
 init python:
-    purevn_version = 'v0.1.0.0';
+    purevn_version = 'v0.1.0.1'
     purevn = False
     purevn_setup = False
     purevn_choice_outcome = False
@@ -11,6 +11,10 @@ init python:
     purevn_sola_get_holo = False
     purevn_seen_count_before = 0
     purevn_seen_count_after = 0
+    purevn_election_outcome = False
+    purevn_rng = 0
+    purevn_rng_start = 0
+    purevn_rng_end = 0
 
     # decision4
     decision_extra_2 = False
@@ -23,7 +27,8 @@ label purevn_full_stats:
     $ stat_stress = 0
     $ stat_money = 500
     $ stat_luck = 500
-    $ stat_grade = 100
+    # Handled by Choice Outcome
+    #$ stat_grade = 100
     #$ stat_prestige = 500
     $ stat_homework = 0
     

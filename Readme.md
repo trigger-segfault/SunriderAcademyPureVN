@@ -13,6 +13,7 @@ PureVN is a mod to *optionally* eliminate all non-visual novel elements in Sunri
 When starting a new game PureVN will ask you if you want to enabled **PureVN Mode** just before choosing your character class. In any other scenario, PureVN Mode can be enabled mid-game in the console with `purevn = True` and optionally `purevn_choice_outcome = True`.
 
 **Choice Outcome** allows the player to choose the outcome of Competitions, which allows the user more flexibility with story dialogue.
+**Choice Outcome** allows the player to choose the outcome of scenarios that are normally fixed in PureVN Mode. This allows you to encounter more dialogue choices than you would with fixed high stats.
 
 PureVN *should not* interfere with gameplay when **PureVN Mode** is disabled. If gameplay while PureVN Mode is disabled is different in anyway, then please report it in the issues section.
 
@@ -32,17 +33,25 @@ To deploy the Ren'Py script(s) to an installation directory, create `deploydir.t
 
 Auto-Activity is the logic implemented to decide where to go during each activity in order to encounter all events. The decisions made are based on information gained from [tomak's Steam Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=426915574). Auto-Activity does not perform any activity during the first 2 hours on days off.
 
-* **Common Route:** `bugfixes required`
-* ![Ava Arc](preview/ava_small_24.png) **Ava Route:** `testing required`
+* **Common Route:** `finished`
+* ![Ava Arc](preview/ava_small_24.png) **Ava Route:** `untested` <sup>(There shouldn't be anything to test, it's all automatic)</sup>
 * ![Asaga Arc](preview/asaga_small_24.png) **Asaga Route:** `finished`
-* ![Chigara Arc](preview/chigara_small_24.png) **Chigara Route:** `testing required`
-* ![Sola Arc](preview/sola_small_24.png) **Sola Route:** `testing required`
+* ![Chigara Arc](preview/chigara_small_24.png) **Chigara Route:** `untested`
+* ![Sola Arc](preview/sola_small_24.png) **Sola Route:** `untested`
 
 Auto-Activity is performed in the following 3 files:
 
 * `purevn_choose_lunch.rpy`
 * `purevn_choose_club.rpy`
 * `purevn_choose_afterschool.rpy`
+
+## Choice Outcome
+
+**Choice Outcome** allows the user to choose the outcome of scenarios that are normally fixed in PureVN Mode. This allows you to encounter more dialogue choices than you would with high stats.
+
+* **Competitions:** `finished`
+* **Exams:** `untested`
+* **Election:** `untested`
 
 <!--### **Common Route:** `almost done`
 

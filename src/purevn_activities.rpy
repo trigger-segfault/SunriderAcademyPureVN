@@ -3490,6 +3490,7 @@ label purevn_kendorounds:
             pause 2.0
         with dissolvemedium
         scene bg gym with dissolve
+        call purevn_choice_outcome_win from _call_kendorounds_purevn_choice_outcome_win
         jump purevn_kendorounds_end
 
     show competition_kendo:
@@ -3583,7 +3584,6 @@ label purevn_kendorounds:
         jump kendorounds
 
 label purevn_kendorounds_end:
-    call purevn_choice_outcome_win from _call_kendorounds_purevn_choice_outcome_win
 
     stop music fadeout 1.5
     hide competition_kendo
@@ -3663,6 +3663,7 @@ label purevn_swimrounds:
             pause 2.0
         with dissolvemedium
         scene bg pool with dissolve
+        call purevn_choice_outcome_win from _call_swimrounds_purevn_choice_outcome_win
         jump purevn_swimrounds_end
         
     show competition_swim:
@@ -3757,7 +3758,6 @@ label purevn_swimrounds:
         jump swimrounds
 
 label purevn_swimrounds_end:
-    call purevn_choice_outcome_win from _call_swimrounds_purevn_choice_outcome_win
     
     stop music fadeout 1.5
     hide competition_swim
@@ -3837,6 +3837,7 @@ label purevn_sciencerounds:
             pause 2.0
         with dissolvemedium
         scene bg museum_day with dissolve
+        call purevn_choice_outcome_win from _call_sciencerounds_purevn_choice_outcome_win
         jump purevn_sciencerounds_end
 
     show sciencecompetition base:
@@ -3913,8 +3914,7 @@ label purevn_sciencerounds:
         jump sciencerounds
         
 label purevn_sciencerounds_end:
-    call purevn_choice_outcome_win from _call_sciencerounds_purevn_choice_outcome_win
-    
+
     stop music fadeout 1.5
     hide sciencecompetition
     hide activity_background
@@ -3986,7 +3986,6 @@ label purevn_sciencerounds_end:
     return
     
 label purevn_examresults_calc:
-    scene bg classroom with dissolve
     
     $ luck_mod = (stat_luck/2)-((difficulty-2)*8)
     
@@ -4022,6 +4021,10 @@ label purevn_examresults_calc:
         $ exam_score += 2
     if haveitem_majorstudycharm == True:
         $ exam_score += 3
+
+    if purevn == True:
+        scene bg classroom with dissolve
+        call purevn_choice_outcome_grade from _call_examresults_purevn_choice_outcome_grade
 
     if homework_score < 0:
         $ homework_score = 0
@@ -4069,7 +4072,6 @@ label purevn_examresults_calc:
     return
 
 label purevn_finalexamresults_calc:
-    scene bg classroom with dissolve
     
     $ luck_mod = (stat_luck/2)-((difficulty-2)*8)
     
@@ -4098,6 +4100,10 @@ label purevn_finalexamresults_calc:
         $ exam_score += 6
     if haveitem_majorstudycharm == True:
         $ exam_score += 10
+
+    if purevn == True:
+        scene bg classroom with dissolve
+        call purevn_choice_outcome_grade from _call_finalexamresults_purevn_choice_outcome_grade
 
     $ stat_grade = exam_score
         
