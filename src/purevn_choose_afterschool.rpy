@@ -125,7 +125,7 @@ label purevn_random_afterschool:
     $ purevn.rng_start = 1
     if hour == 6:
         $ purevn.rng_start = 0
-    $ purevn.rng = renpy.random.randint(purevn.rng_start,12)
+    $ purevn.rng = renpy.random.randint(purevn.rng_start,11)
 
     if purevn.rng == 0:
         jump gohome
