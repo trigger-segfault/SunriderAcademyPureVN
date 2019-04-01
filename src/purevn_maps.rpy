@@ -1,6 +1,14 @@
 screen purevn_route_map:
     modal True
-  
+
+    imagebutton:
+        xpos 1350 ypos 950
+        idle "UI/bonus_done_base.png"
+        hover "UI/bonus_done_hover.png"
+        action (Hide("purevn_route_map"),SetField(purevn,"no_route",True),Jump("purevn_choose_afterschool"))
+        hover_sound "Sounds/hover1.ogg"
+        activate_sound "Sounds/button1.ogg"
+
     if month >= 4 and affection_sola >= 50 and "m3w3_eldersday_shrine" in seen_labels and "m3w1_solaholo" in seen_labels and "m4_solastart" not in seen_labels and "m3w4_afterlab" not in seen_labels and "m4_asagamobchase" not in seen_labels and "m4_avastart" not in seen_labels:
         imagebutton:
             xpos 835 ypos 475

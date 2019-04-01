@@ -12,7 +12,7 @@ init +1:
             hover "UI/choice_base.png"
             hover_sound "Sounds/hover1.ogg"
             activate_sound "Sounds/button1.ogg"
-            action (Hide("decision"),Jump(choice1_jump))
+            action (Hide("decision"),SetVariable("decision_extra",False),Jump(choice1_jump))
             
         imagebutton at tr_decision(0.2):
             xanchor 0.5
@@ -21,7 +21,7 @@ init +1:
             hover "UI/choice_base.png"
             hover_sound "Sounds/hover1.ogg"
             activate_sound "Sounds/button1.ogg"
-            action (Hide("decision"),Jump(choice2_jump))
+            action (Hide("decision"),SetVariable("decision_extra",False),Jump(choice2_jump))
             
         if decision_extra == True:
             
@@ -32,7 +32,7 @@ init +1:
                 hover "UI/choice_base.png"
                 hover_sound "Sounds/hover1.ogg"
                 activate_sound "Sounds/button1.ogg"
-                action (Hide("decision"),Jump(choice3_jump)) # Fix choice2_jump being called here
+                action (Hide("decision"),SetVariable("decision_extra",False),Jump(choice3_jump)) # Fix choice2_jump being called here
                     
         text choice1_text at tr_decision(0):
             text_align 0.5 xanchor 0.5 ypos 0.39
@@ -63,7 +63,7 @@ screen purevn_decision4:
         hover "UI/choice_base.png"
         hover_sound "Sounds/hover1.ogg"
         activate_sound "Sounds/button1.ogg"
-        action (Hide("purevn_decision4"),Jump(choice1_jump))
+        action (Hide("purevn_decision4"),SetField(purevn,"decision_extra",False),SetField(purevn,"decision_extra_2",False),Jump(choice1_jump))
         
     imagebutton at tr_decision(0.2):
         xanchor 0.5
@@ -72,9 +72,9 @@ screen purevn_decision4:
         hover "UI/choice_base.png"
         hover_sound "Sounds/hover1.ogg"
         activate_sound "Sounds/button1.ogg"
-        action (Hide("purevn_decision4"),Jump(choice2_jump))
+        action (Hide("purevn_decision4"),SetField(purevn,"decision_extra",False),SetField(purevn,"decision_extra_2",False),Jump(choice2_jump))
         
-    if decision_extra == True:
+    if purevn.decision_extra == True:
         
         imagebutton at tr_decision(0.4):
             xanchor 0.5
@@ -83,9 +83,9 @@ screen purevn_decision4:
             hover "UI/choice_base.png"
             hover_sound "Sounds/hover1.ogg"
             activate_sound "Sounds/button1.ogg"
-            action (Hide("purevn_decision4"),Jump(choice3_jump))
+            action (Hide("purevn_decision4"),SetField(purevn,"decision_extra",False),SetField(purevn,"decision_extra_2",False),Jump(choice3_jump))
         
-    if decision_extra_2 == True:
+    if purevn.decision_extra_2 == True:
         
         imagebutton at tr_decision(0.6):
             xanchor 0.5
@@ -94,7 +94,7 @@ screen purevn_decision4:
             hover "UI/choice_base.png"
             hover_sound "Sounds/hover1.ogg"
             activate_sound "Sounds/button1.ogg"
-            action (Hide("purevn_decision4"),Jump(choice4_jump))
+            action (Hide("purevn_decision4"),SetField(purevn,"decision_extra",False),SetField(purevn,"decision_extra_2",False),Jump(choice4_jump))
                 
     text choice1_text at tr_decision(0):
         text_align 0.5 xanchor 0.5 ypos 0.29
@@ -106,21 +106,16 @@ screen purevn_decision4:
         size 40
         outlines [ (4, "#282828", 0, 0) ]    
         
-    if decision_extra == True:
+    if purevn.decision_extra == True:
 
         text choice3_text at tr_decision(0.4):
             text_align 0.5 xanchor 0.5 ypos 0.59
             size 40
             outlines [ (4, "#282828", 0, 0) ]    
         
-    if decision_extra_2 == True:
+    if purevn.decision_extra_2 == True:
 
         text choice4_text at tr_decision(0.6):
             text_align 0.5 xanchor 0.5 ypos 0.74
             size 40
             outlines [ (4, "#282828", 0, 0) ] 
-            
-label purevn_decision_wipe:
-    $ decision_extra = False
-    $ decision_extra_2 = False
-    return

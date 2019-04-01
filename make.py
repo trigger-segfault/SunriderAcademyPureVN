@@ -25,6 +25,7 @@ if definefiles == True:
     filenames = ([
         'init',
         'start',
+        'debug',
         'decision',
         'maps',
         'choice_outcome',

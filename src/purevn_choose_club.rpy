@@ -80,34 +80,34 @@ label purevn_choose_club:
     jump purevn_random_club
 
 label purevn_random_kendo:
-    $ purevn_rng = renpy.random.randint(1,2)
-    if purevn_rng == 1:
+    $ purevn.rng = renpy.random.randint(1,2)
+    if purevn.rng == 1:
         jump kendo_practice
     else:
         jump kendo_morale
         
 label purevn_random_swim:
-    $ purevn_rng = renpy.random.randint(1,2)
-    if purevn_rng == 1:
+    $ purevn.rng = renpy.random.randint(1,2)
+    if purevn.rng == 1:
         jump swim_practice
     else:
         jump swim_morale
         
 label purevn_random_science:
-    $ purevn_rng = renpy.random.randint(1,2)
-    if purevn_rng == 1:
+    $ purevn.rng = renpy.random.randint(1,2)
+    if purevn.rng == 1:
         jump science_practice
     else:
         jump science_morale
 
 label purevn_random_club:
-    $ purevn_rng = renpy.random.randint(1,4)
+    $ purevn.rng = renpy.random.randint(1,4)
 
-    if purevn_rng == 1:
+    if purevn.rng == 1:
         jump purevn_random_kendo
-    if purevn_rng == 2:
+    if purevn.rng == 2:
         jump purevn_random_swim
-    if purevn_rng == 3:
+    if purevn.rng == 3:
         jump purevn_random_science
-    if purevn_rng == 4:
+    if purevn.rng == 4:
         jump studentcouncil_practice

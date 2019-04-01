@@ -54,15 +54,15 @@ label purevn_choose_lunch:
     jump purevn_random_lunch
 
 label purevn_random_lunch:
-    $ purevn_rng_start = 1
+    $ purevn.rng_start = 1
     if lovebento == True:
-        $ purevn_rng_start = 0
+        $ purevn.rng_start = 0
 
-    $ purevn_rng = renpy.random.randint(purevn_rng_start,2)
+    $ purevn.rng = renpy.random.randint(purevn.rng_start,2)
 
-    if purevn_rng == 0:
+    if purevn.rng == 0:
         jump eat_classroom
-    if purevn_rng == 1:
+    if purevn.rng == 1:
         jump eat_courtyard
-    if purevn_rng == 2:
+    if purevn.rng == 2:
         jump eat_cafeteria

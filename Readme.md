@@ -6,16 +6,34 @@
 [![Creation Date](https://img.shields.io/badge/created-march%202019-A642FF.svg?style=flat)](https://github.com/trigger-death/SunriderAcademyPureVN/commit/26464c07eab6544c8f300f8ae2965e5acfa535f4)
 [![Discord](https://img.shields.io/discord/436949335947870238.svg?style=flat&logo=discord&label=chat&colorB=7389DC&link=https://discord.gg/vB7jUbY)](https://discord.gg/vB7jUbY)
 
-PureVN is a mod to *optionally* eliminate all non-visual novel elements in Sunrider Academy for a nice, smooth, *non-carpal-tunnel-inducing* story.
+PureVN is a mod to *optionally* eliminate all non-visual novel elements in [Sunrider Academy](https://vndb.org/v16221/chars) for a nice, smooth, *non-carpal-tunnel-inducing* story.
 
 <p align="center"><img alt="Sunrider Academy PureVN Mod Logo" src="preview/purevn_logo.png"></p>
 
-When starting a new game PureVN will ask you if you want to enabled **PureVN Mode** just before choosing your character class. In any other scenario, PureVN Mode can be enabled mid-game in the console with `purevn = True` and optionally `purevn_choice_outcome = True`.
+When starting a new game PureVN will ask you if you want to enabled **PureVN Mode** just before choosing your character class. There are also console commands to change settings at any time:
 
-**Choice Outcome** allows the player to choose the outcome of Competitions, which allows the user more flexibility with story dialogue.
+```py
+purevn_disable() # Disable PureVN Mode and Choice Outcome
+purevn_enable()  # Enable PureVN Mode and Disable Choice Outcome
+purevn_choice_outcome_enable() # Enable PureVN Mode and Choice Outcome
+purevn_status()  # Display whether PureVN Mode or Choice Outcome are enabled
+```
+
 **Choice Outcome** allows the player to choose the outcome of scenarios that are normally fixed in PureVN Mode. This allows you to encounter more dialogue choices than you would with fixed high stats.
 
 PureVN *should not* interfere with gameplay when **PureVN Mode** is disabled. If gameplay while PureVN Mode is disabled is different in anyway, then please report it in the issues section.
+
+## Installation
+
+Installing is as easy as dragging the `purevn.rpy` file into the `%INSTALLDIR%/game/` directory.
+
+Uninstalling requires you remove `purevn.rpy` and `purevn.rpyc` (if it exists) from the same directory.
+
+### Important
+
+Any save that is played while PureVN is installed will be dependent on the mod, and crash if the mod is uninstalled. This is because PureVN overrides the activities in Sunrider Academy and *most* of the time, the game will be nested within some sort of activity (because events are also triggered inside activities).
+
+The **only** way for a save to work after uninstalling the mod is to make sure the script is somewhere in the dayloop. The dayloop is any time where the character monologues something in-between activities. I.E. *"It's morning. Time for school."*, *"It's the weekend."*, *"Lunch time. Where should I eat?"*, *"Extra-curricular clubs are now in session."*, *"Club hours are over for today."*, *"I fell into bed and quickly went to sleep."*.
 
 ## How to Build
 
@@ -39,43 +57,10 @@ Auto-Activity is the logic implemented to decide where to go during each activit
 * ![Chigara Arc](preview/chigara_small_24.png) **Chigara Route:** `untested`
 * ![Sola Arc](preview/sola_small_24.png) **Sola Route:** `untested`
 
-Auto-Activity is performed in the following 3 files:
-
-* `purevn_choose_lunch.rpy`
-* `purevn_choose_club.rpy`
-* `purevn_choose_afterschool.rpy`
-
 ## Choice Outcome
 
 **Choice Outcome** allows the user to choose the outcome of scenarios that are normally fixed in PureVN Mode. This allows you to encounter more dialogue choices than you would with high stats.
 
 * **Competitions:** `finished`
-* **Exams:** `untested`
-* **Election:** `untested`
-
-<!--### **Common Route:** `almost done`
-
-### **Heroine Arcs:** `not started`
-
-![Sola Arc](preview/sola_small.png) ![Chigara Arc](preview/chigara_small.png) ![Asaga Arc](preview/asaga_small.png) ![Ava Arc](preview/ava_small.png)
-
-* **Ava Route:** `not started`
-* **Asaga Route:** `not started`
-* **Chigara Route:** `not started`
-* **Sola Route:** `not started`
-
-### ![Ava Arc](preview/ava_small.png) **Ava Route:** `not started`
-
-### ![Asaga Arc](preview/asaga_small.png) **Asaga Route:** `not started`
-
-### ![Chigara Arc](preview/chigara_small.png) **Chigara Route:** `not started`
-
-### ![Sola Arc](preview/sola_small.png) **Sola Route:** `not started`
-
-### ![Ava Arc](preview/ava_small_24.png) **Ava Route:** `not started`
-
-### ![Asaga Arc](preview/asaga_small_24.png) **Asaga Route:** `not started`
-
-### ![Chigara Arc](preview/chigara_small_24.png) **Chigara Route:** `not started`
-
-### ![Sola Arc](preview/sola_small_24.png) **Sola Route:** `not started`-->
+* **Exams:** `finished`
+* **Election:** `finished`

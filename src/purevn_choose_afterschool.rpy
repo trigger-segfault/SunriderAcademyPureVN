@@ -7,41 +7,41 @@ label purevn_choose_afterschool:
     call purevn_full_stats from _call_afterschool_purevn_full_stats
 
     # Shop events
-    if month == 3 and week == 5 and asagabirthdaygift == False and purevn_asaga_get_present == False:
-        $ purevn_asaga_get_present = True
+    if month == 3 and week == 5 and asagabirthdaygift == False and purevn.asaga_get_present == False:
+        $ purevn.asaga_get_present = True
         call visit_shop from _call_visit_shop_purevn_1
-    if month == 4 and week == 1 and day < 3 and asagabirthdaygift == False and purevn_asaga_get_present == False:
-        $ purevn_asaga_get_present = True
+    if month == 4 and week == 1 and day < 3 and asagabirthdaygift == False and purevn.asaga_get_present == False:
+        $ purevn.asaga_get_present = True
         call visit_shop from _call_visit_shop_purevn_2
         
-    if month == 5 and week == 3 and maraybirthdaygift == False and purevn_maray_get_present == False:
-        $ purevn_maray_get_present = True
+    if month == 5 and week == 3 and maraybirthdaygift == False and purevn.maray_get_present == False:
+        $ purevn.maray_get_present = True
         call visit_shop from _call_visit_shop_purevn_3
-    if month == 5 and week == 4 and day < 3 and maraybirthdaygift == False and purevn_maray_get_present == False:
-        $ purevn_maray_get_present = True
+    if month == 5 and week == 4 and day < 3 and maraybirthdaygift == False and purevn.maray_get_present == False:
+        $ purevn.maray_get_present = True
         call visit_shop from _call_visit_shop_purevn_4
         
-    if month == 6 and week == 5 and avabirthdaygift == False and purevn_ava_get_present == False:
-        $ purevn_ava_get_present = True
+    if month == 6 and week == 5 and avabirthdaygift == False and purevn.ava_get_present == False:
+        $ purevn.ava_get_present = True
         call visit_shop from _call_visit_shop_purevn_5
 
-    if month == 8 and week == 5 and chigarabirthdaygift == False and purevn_chigara_get_present == False:
-        $ purevn_chigara_get_present = True
+    if month == 8 and week == 5 and chigarabirthdaygift == False and purevn.chigara_get_present == False:
+        $ purevn.chigara_get_present = True
         call visit_shop from _call_visit_shop_purevn_6
-    if month == 9 and week == 1 and day < 3 and chigarabirthdaygift == False and purevn_chigara_get_present == False:
-        $ purevn_chigara_get_present = True
+    if month == 9 and week == 1 and day < 3 and chigarabirthdaygift == False and purevn.chigara_get_present == False:
+        $ purevn.chigara_get_present = True
         call visit_shop from _call_visit_shop_purevn_7
 
-    if month == 9 and week == 2 and solabirthdaygift == False and purevn_sola_get_present == False:
-        $ purevn_sola_get_present = True
+    if month == 9 and week == 2 and solabirthdaygift == False and purevn.sola_get_present == False:
+        $ purevn.sola_get_present = True
         call visit_shop from _call_visit_shop_purevn_8
-    if month == 9 and week == 3 and day == 1 and solabirthdaygift == False and purevn_sola_get_present == False:
-        $ purevn_sola_get_present = True
+    if month == 9 and week == 3 and day == 1 and solabirthdaygift == False and purevn.sola_get_present == False:
+        $ purevn.sola_get_present = True
         call visit_shop from _call_visit_shop_purevn_9
 
     # Sola Holo
-    if "m2w5_librarysola" in seen_labels and "m3w1_solaholo" not in seen_labels and purevn_sola_get_holo == False:
-        $ purevn_sola_get_holo = True
+    if "m2w5_librarysola" in seen_labels and "m3w1_solaholo" not in seen_labels and purevn.sola_get_holo == False and haveitem_holo == False:
+        $ purevn.sola_get_holo = True
         call purevn_store_hologift from _call_purevn_store_hologift
 
     # Make sure to give Sola her Holo if you bought one
@@ -122,41 +122,37 @@ label purevn_choose_afterschool:
     jump purevn_random_afterschool
 
 label purevn_random_afterschool:
-    $ purevn_rng_start = 1
-    if ava_tutoring == True:
-        $ purevn_rng_start = 0
+    $ purevn.rng_start = 1
+    if hour == 6:
+        $ purevn.rng_start = 0
+    $ purevn.rng = renpy.random.randint(purevn.rng_start,12)
 
-    $ purevn_rng = renpy.random.randint(purevn_rng_start,12)
+    if purevn.rng == 0:
+        jump gohome
 
-    if purevn_rng == 0:
-        jump library_tutor
-
-    if purevn_rng == 1:
+    if purevn.rng == 1:
         jump library_study
-    if purevn_rng == 2:
+    if purevn.rng == 2:
         jump visit_museum
-    if purevn_rng == 3:
+    if purevn.rng == 3:
         jump visit_arcade
-    if purevn_rng == 4:
+    if purevn.rng == 4:
         jump visit_park
-    if purevn_rng == 5:
+    if purevn.rng == 5:
         jump visit_shrine
-    if purevn_rng == 6:
+    if purevn.rng == 6:
         jump gym_exercise
 
-    if purevn_rng == 7:
+    if purevn.rng == 7:
         jump job_museum
-    if purevn_rng == 8:
+    if purevn.rng == 8:
         jump job_arcade
-    if purevn_rng == 9:
+    if purevn.rng == 9:
         jump job_park
-    if purevn_rng == 10:
+    if purevn.rng == 10:
         jump job_shrine
-    if purevn_rng == 11:
+    if purevn.rng == 11:
         jump job_shop
-
-    if purevn_rng == 12:
-        jump gohome
 
 label purevn_store_hologift:
 

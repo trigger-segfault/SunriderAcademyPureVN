@@ -41,7 +41,7 @@ init -10 python:
         election_outcome = False
 
         # Used for screen purevn_decision4 to display fourth choice
-        decision_extra_2 = False
+        purevn.decision_extra_2 = False
 
         # Check if we encounter events during an activity, used to dissolve transition
         seen_count_before = 0
@@ -54,3 +54,25 @@ init -10 python:
 
     # Define the purevn variable
     purevn = _PureVN()
+
+    
+init python:
+    purevn.version = 'v0.2.0.0'
+    purevn = False
+    purevn.setup = False
+    purevn.choice_outcome = False
+    purevn.asaga_get_present = False
+    purevn.maray_get_present = False
+    purevn.ava_get_present = False
+    purevn.chigara_get_present = False
+    purevn.sola_get_present = False
+    purevn.sola_get_holo = False
+    purevn.seen_count_before = 0
+    purevn.seen_count_after = 0
+    purevn.election_outcome = False
+    purevn.rng = 0
+    purevn.rng_start = 0
+    purevn.rng_end = 0
+
+    # decision4
+    purevn.decision_extra_2 = False

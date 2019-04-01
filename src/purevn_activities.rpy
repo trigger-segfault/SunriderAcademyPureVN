@@ -86,18 +86,18 @@ label purevn_act_class_retry:
     
     scene bg classroom with dissolve
     
-    $ purevn_seen_count_before = len(seen_labels)
+    if is_purevn():
+        $ purevn.seen_count_before = len(seen_labels)
 
     if retry == False:
         call class_events from _call_class_events_purevn
 
-    if purevn == True:
-        $ purevn_seen_count_after = len(seen_labels)
+    if is_purevn():
+        $ purevn.seen_count_after = len(seen_labels)
         # Fade to show passage of time, just like in a montage
-        if purevn_seen_count_before < purevn_seen_count_after:
-            scene black:
-                pause 2.0
-            with dissolvemedium
+        if purevn.seen_count_before < purevn.seen_count_after:
+            scene black with dissolve
+            
         
         scene bg classroom with dissolve
         $ hour += 1
@@ -185,7 +185,7 @@ label purevn_act_exam:
     
     call class_events from _call_class_events_1_purevn
     
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         return
 
@@ -237,7 +237,7 @@ label purevn_act_lunch:
     
     $ lunch = True
 
-    if purevn == True:
+    if is_purevn():
         jump purevn_choose_lunch
         
     window hide
@@ -259,7 +259,7 @@ label purevn_eat_courtyard:
         
         call courtyard_events from _call_courtyard_events_purevn
         
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -301,7 +301,7 @@ label purevn_act_culturefest_science:
                 
     call culturefestival_events from _call_culturefestival_events_purevn
                 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -345,7 +345,7 @@ label purevn_act_culturefest_swim:
                 
     call culturefestival_events from _call_culturefestival_events_1_purevn
                
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -389,7 +389,7 @@ label purevn_act_culturefest_kendo:
                 
     call culturefestival_events from _call_culturefestival_events_2_purevn
               
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -433,7 +433,7 @@ label purevn_eat_classroom:
             
     call classlunch_events from _call_classlunch_events_purevn
               
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -491,7 +491,7 @@ label purevn_eat_cafeteria:
 
         call cafeteria_events from _call_cafeteria_events_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -532,7 +532,7 @@ label purevn_act_clubs:
     if hour == 7:
         return
     
-    if purevn == True:
+    if is_purevn():
         jump purevn_choose_club
     
     window hide
@@ -631,7 +631,7 @@ label purevn_act_clubs2:
     
     $ clubtime = True
     
-    if purevn == True:
+    if is_purevn():
         jump purevn_choose_club
     
     window hide
@@ -668,7 +668,7 @@ label purevn_kendo_practice_retry:
     if retry == False:
         call kendo_events from _call_kendo_events_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -828,7 +828,7 @@ label purevn_kendo_recruit_retry:
         
         scene bg courtyard_day with dissolve
         
-    if purevn == True:
+    if is_purevn():
         if recruitmentday == False:
             $ hour += 1
         window show
@@ -938,7 +938,7 @@ label purevn_kendo_morale:
         
     call kendo_events from _call_kendo_events_1_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -1012,7 +1012,7 @@ label purevn_swim_practice_retry:
     if retry == False:
         call pool_events from _call_pool_events_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -1168,7 +1168,7 @@ label purevn_swim_recruit_retry:
     if hour > 5:
         scene bg courtyard_evening with dissolve
     
-    if purevn == True:
+    if is_purevn():
         if recruitmentday == False:
             $ hour += 1
         window show
@@ -1268,7 +1268,7 @@ label purevn_swim_morale:
 
     call pool_events from _call_pool_events_1_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -1342,7 +1342,7 @@ label purevn_science_practice_retry:
     if retry == False:
         call lab_events from _call_lab_events_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -1459,7 +1459,7 @@ label purevn_science_recruit_retry:
 
     window hide
 
-    if purevn == True:
+    if is_purevn():
         if recruitmentday == False:
             $ hour += 1
         window show
@@ -1556,7 +1556,7 @@ label purevn_science_morale:
 
     call lab_events from _call_lab_events_1_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -1626,7 +1626,7 @@ label purevn_library_study_retry:
         
         call library_events from _call_library_events_purevn
     
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -1745,6 +1745,11 @@ label purevn_library_tutor_retry:
         
         scene bg library_night with dissolve
 
+    if is_purevn():
+        $ hour += 1
+        window show
+        return
+
     call diceroll from _call_diceroll_12_purevn
         
     $ tobeat = 20 + stat_stress + month*10 + week*2 - (stat_intelligence/3)
@@ -1860,7 +1865,7 @@ label purevn_library_homework_retry:
         
         call library_events from _call_library_events_1_purevn
             
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -1979,7 +1984,7 @@ label purevn_studentcouncil_practice_retry:
     if retry == False:
         call studentcouncil_events from _call_studentcouncil_events_purevn
     
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -2084,7 +2089,7 @@ label purevn_act_afterschool:
         if day == 4 or day == 7:
             jump library_tutor
     
-    if purevn == True:
+    if is_purevn():
         if (
             (month > 4) or (month == 4 and (week > 1 or (week == 1 and day > 4)))
         ) and (
@@ -2097,7 +2102,7 @@ label purevn_act_afterschool:
             "m3w4_afterlab" not in seen_labels and
             "m4_asagamobchase" not in seen_labels and
             "m4_avastart" not in seen_labels
-        ):
+        ) and purevn.no_route == False:
             window hide
             
             scene bg campusmap
@@ -2117,7 +2122,7 @@ label purevn_act_afterschool:
     
 label purevn_switchtocitymap:
     
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         return
 
@@ -2131,7 +2136,7 @@ label purevn_switchtocitymap:
     
 label purevn_switchtoschoolmap:
     
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         return
     
@@ -2192,7 +2197,7 @@ label purevn_visit_museum_retry:
         if retry == False:
             call museum_events from _call_museum_events_purevn
 
-        if purevn == True:
+        if is_purevn():
             $ hour += 1
             window show
             return
@@ -2288,7 +2293,7 @@ label purevn_job_museum_retry:
         
         scene bg museum_night with dissolve
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -2403,7 +2408,7 @@ label purevn_visit_arcade_retry:
         if retry == False:
             call arcade_events from _call_arcade_events_purevn
 
-        if purevn == True:
+        if is_purevn():
             $ hour += 1
             window show
             return
@@ -2516,7 +2521,7 @@ label purevn_job_arcade_retry:
         
     scene bg arcade with dissolve
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -2617,7 +2622,7 @@ label purevn_visit_park_retry:
     if retry == False:
         call park_events from _call_park_events_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -2723,7 +2728,7 @@ label purevn_job_park_retry:
         
         scene bg park_evening with dissolve
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -2818,7 +2823,7 @@ label purevn_visit_shrine_retry:
     if retry == False:
         call shrine_events from _call_shrine_events_purevn
     
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -2856,7 +2861,7 @@ label purevn_job_shrine_retry:
         
         scene bg shrine_evening with dissolve
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -2976,7 +2981,7 @@ label purevn_gym_exercise_retry:
     if retry == False:
         call gym_events from _call_gym_events_purevn
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -3091,7 +3096,7 @@ label purevn_job_shop_retry:
         
         scene bg city_night with dissolve
 
-    if purevn == True:
+    if is_purevn():
         $ hour += 1
         window show
         return
@@ -3176,7 +3181,7 @@ label purevn_visit_shop:
     call store_events from _call_store_events_purevn
 
 
-    if purevn == True:
+    if is_purevn():
         window show
         return
         
@@ -3233,7 +3238,7 @@ label purevn_gohome:
             
         $ assist_maray = False
     
-        if purevn == True:
+        if is_purevn():
             window show
             return
         
@@ -3278,7 +3283,7 @@ label purevn_act_sleep:
     
     call diceroll from _call_diceroll_25_purevn
     
-    if purevn == True:
+    if is_purevn():
         $ renpy.pause(1.5)
         
         jump act_sleep_repeat
@@ -3310,14 +3315,13 @@ label purevn_act_sleep_repeat:
         
     if hour == 9:
         $ hour = 0
-        if purevn == False:
+        if is_not_purevn():
             call sleep_loss from _call_sleep_loss_purevn
         $ renpy.pause(1.5)
     
     if hour < 9 and hour != 0:
-    
         $ hour += 1
-        if purevn == False:
+        if is_not_purevn():
             call sleep_loss from _call_sleep_loss_1_purevn
         $ renpy.pause(1.5)
         jump act_sleep_repeat
@@ -3328,6 +3332,10 @@ label purevn_act_sleep_repeat:
     show kayto_sleep:
         xpos 0.5 ypos 0.5
     with dissolve
+
+    if is_purevn() and purevn.developer == True:
+        call purevn_debug_jump_to_choice from _call_purevn_debug_jump_to_choice_sleep
+        jump purevn_purevn_act_sleep_repeat_end
 
     if day == 0:
         $ week += 1
@@ -3341,6 +3349,8 @@ label purevn_act_sleep_repeat:
     if week > 5:
         $ week = 1
         $ month += 1
+
+label purevn_purevn_act_sleep_repeat_end:
                         
     $ renpy.pause(0.5)
     
@@ -3366,7 +3376,7 @@ label purevn_sleep_loss:
     if haveitem_pillow == True:
         $ roll = renpy.random.randint(1,14)
 
-    if purevn == True:
+    if is_purevn():
         $ roll = 10
     
     if roll == 1:
@@ -3485,7 +3495,7 @@ label purevn_sleep_loss:
 
 
 label purevn_kendorounds:
-    if purevn == True:
+    if is_purevn():
         scene black:
             pause 2.0
         with dissolvemedium
@@ -3658,7 +3668,7 @@ label purevn_kendorounds_end:
 
 
 label purevn_swimrounds:
-    if purevn == True:
+    if is_purevn():
         scene black:
             pause 2.0
         with dissolvemedium
@@ -3832,7 +3842,7 @@ label purevn_swimrounds_end:
     
 
 label purevn_sciencerounds:
-    if purevn == True:
+    if is_purevn():
         scene black:
             pause 2.0
         with dissolvemedium
@@ -4022,7 +4032,7 @@ label purevn_examresults_calc:
     if haveitem_majorstudycharm == True:
         $ exam_score += 3
 
-    if purevn == True:
+    if is_purevn():
         scene bg classroom with dissolve
         call purevn_choice_outcome_grade from _call_examresults_purevn_choice_outcome_grade
 
@@ -4101,7 +4111,7 @@ label purevn_finalexamresults_calc:
     if haveitem_majorstudycharm == True:
         $ exam_score += 10
 
-    if purevn == True:
+    if is_purevn():
         scene bg classroom with dissolve
         call purevn_choice_outcome_grade from _call_finalexamresults_purevn_choice_outcome_grade
 
