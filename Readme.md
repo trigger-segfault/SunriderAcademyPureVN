@@ -52,7 +52,7 @@ Auto-Activity is the logic implemented to decide where to go during each activit
 * ![Ava Arc](preview/ava_small_24.png) **Ava Route:** `untested` <sup>(There shouldn't be anything to test, it's all automatic)</sup>
 * ![Asaga Arc](preview/asaga_small_24.png) **Asaga Route:** `finished`
 * ![Chigara Arc](preview/chigara_small_24.png) **Chigara Route:** `untested`
-* ![Sola Arc](preview/sola_small_24.png) **Sola Route:** `untested`
+* ![Sola Arc](preview/sola_small_24.png) **Sola Route:** `gift issues`
 
 ## Choice Outcome
 
