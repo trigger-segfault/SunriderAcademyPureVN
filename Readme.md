@@ -25,13 +25,10 @@ PureVN *should not* interfere with gameplay when **PureVN Mode** is disabled. If
 
 ## Installation
 
-Installing is as easy as dragging the `purevn.rpy` file into the `%INSTALLDIR%/game/` directory.
-
+Installing is as easy as dragging the `purevn.rpy` file into the `%INSTALLDIR%/game/` directory.<br/>
 Uninstalling requires you remove `purevn.rpy` and `purevn.rpyc` (if it exists) from the same directory.
 
-### Important
-
-Any save that is played while PureVN is installed will be dependent on the mod, and crash if the mod is uninstalled. This is because PureVN overrides the activities in Sunrider Academy and *most* of the time, the game will be nested within some sort of activity (because events are also triggered inside activities).
+**Important:** Any save that is played while PureVN is installed will be dependent on the mod, and crash if the mod is uninstalled. This is because PureVN overrides the activities in Sunrider Academy and *most* of the time, the game will be nested within some sort of activity (because events are also triggered inside activities).
 
 The **only** way for a save to work after uninstalling the mod is to make sure the script is somewhere in the dayloop. The dayloop is any time where the character monologues something in-between activities. I.E. *"It's morning. Time for school."*, *"It's the weekend."*, *"Lunch time. Where should I eat?"*, *"Extra-curricular clubs are now in session."*, *"Club hours are over for today."*, *"I fell into bed and quickly went to sleep."*.
 
