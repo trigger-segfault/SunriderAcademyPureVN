@@ -13,29 +13,30 @@ label purevn_choose_afterschool:
     if month == 4 and week == 1 and day < 3 and asagabirthdaygift == False and purevn.asaga_get_present == False:
         $ purevn.asaga_get_present = True
         call visit_shop from _call_visit_shop_purevn_2
-        
+
     if month == 5 and week == 3 and maraybirthdaygift == False and purevn.maray_get_present == False:
         $ purevn.maray_get_present = True
         call visit_shop from _call_visit_shop_purevn_3
     if month == 5 and week == 4 and day < 3 and maraybirthdaygift == False and purevn.maray_get_present == False:
         $ purevn.maray_get_present = True
         call visit_shop from _call_visit_shop_purevn_4
-        
+
     if month == 6 and week == 5 and avabirthdaygift == False and purevn.ava_get_present == False:
         $ purevn.ava_get_present = True
         call visit_shop from _call_visit_shop_purevn_5
 
-    if month == 8 and week == 5 and chigarabirthdaygift == False and purevn.chigara_get_present == False:
+    # Sola's route has scripted purchases for both Chigara AND Sola, don't break continuity buy buying a second present
+    if month == 8 and week == 5 and "m4_solastart" not in seen_labels and chigarabirthdaygift == False and purevn.chigara_get_present == False:
         $ purevn.chigara_get_present = True
         call visit_shop from _call_visit_shop_purevn_6
-    if month == 9 and week == 1 and day < 3 and chigarabirthdaygift == False and purevn.chigara_get_present == False:
+    if month == 9 and week == 1 and day < 3 and "m4_solastart" not in seen_labels and chigarabirthdaygift == False and purevn.chigara_get_present == False:
         $ purevn.chigara_get_present = True
         call visit_shop from _call_visit_shop_purevn_7
 
-    if month == 9 and week == 2 and solabirthdaygift == False and purevn.sola_get_present == False:
+    if month == 9 and week == 2 and "m4_solastart" not in seen_labels and solabirthdaygift == False and purevn.sola_get_present == False:
         $ purevn.sola_get_present = True
         call visit_shop from _call_visit_shop_purevn_8
-    if month == 9 and week == 3 and day == 1 and solabirthdaygift == False and purevn.sola_get_present == False:
+    if month == 9 and week == 3 and day == 1 and "m4_solastart" not in seen_labels and solabirthdaygift == False and purevn.sola_get_present == False:
         $ purevn.sola_get_present = True
         call visit_shop from _call_visit_shop_purevn_9
 
@@ -122,13 +123,11 @@ label purevn_choose_afterschool:
     jump purevn_random_afterschool
 
 label purevn_random_afterschool:
-    $ purevn.rng_start = 1
+    # If we're doing random afterschool, it means there's no scene we need to hit. Just go home and stop wasting the player's time
     if hour == 6:
-        $ purevn.rng_start = 0
-    $ purevn.rng = renpy.random.randint(purevn.rng_start,11)
-
-    if purevn.rng == 0:
         jump gohome
+
+    $ purevn.rng = renpy.random.randint(1,11)
 
     if purevn.rng == 1:
         jump library_study

@@ -7,7 +7,7 @@ init python:
         # The version of this PureVN mod file
         @property
         def version(self):
-            return 'v0.2.0.0' # Constant
+            return 'v0.3.0.0' # Constant
 
         # The current version of the PureVN class that you loaded the save from
         def __init__(self):
@@ -40,7 +40,7 @@ init python:
         # We have rigged the election during label purevn_voteadd and should not rig it again
         election_outcome = False
 
-        # Check if we encounter events during an activity, used to dissolve transition
+        # Check if we encounter events during an activity, used to horizontalwipe transition
         seen_count_before = 0
         seen_count_after = 0
 
@@ -54,8 +54,6 @@ init python:
         rng = 0
         rng_start = 0
         rng_end = 0
-
-    #purevn_current_label = '<none>'
 
 init python:
     # Regex for version comparison
@@ -157,7 +155,6 @@ init python:
 label purevn_older_version_warning:
     # No user, you're making a big mistake
     tut "The version of PureVN on this save is higher than the installed version of PureVN. You may encounter errors if you continue to use an older version!\n\nCurrent: [purevn.current_version]\nInstalled: [purevn.version]"
-    #tut "The version of PureVN on this save ([purevn.current_version]) is higher than the installed version of PureVN ([purevn.version]).\n\nYou may encounter errors if you continue to use an older version!"
 
     # Don't warn the user again until the another version change
     $ purevn.current_version = purevn.version
@@ -175,15 +172,15 @@ label purevn_full_stats:
     #$ stat_grade = 100
     #$ stat_prestige = 500
     $ stat_homework = 0
-    
+
     $ stat_kendo_member = 100
     $ stat_kendo_readiness = 500
     $ stat_kendo_morale = 500
-    
+
     $ stat_science_member = 100
     $ stat_science_readiness = 500
     $ stat_science_morale = 500
-    
+
     $ stat_swim_member = 100
     $ stat_swim_readiness = 500
     $ stat_swim_morale = 500

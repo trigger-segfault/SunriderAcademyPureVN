@@ -96,10 +96,8 @@ label purevn_act_class_retry:
         $ purevn.seen_count_after = len(seen_labels)
         # Fade to show passage of time, just like in a montage
         if purevn.seen_count_before < purevn.seen_count_after:
-            scene black with dissolve
-            
-        
-        scene bg classroom with dissolve
+            scene black with horizontalwipe
+            scene bg classroom with horizontalwipe
         $ hour += 1
         window show
         return
@@ -3255,6 +3253,30 @@ label purevn_act_sleep:
     $ talk_maray = False
     $ assist_maray = False
     $ solashopping = False
+    
+    if is_purevn():
+        scene bg room_night with dissolve
+        $ hour = 7
+        
+        scene black with horizontalwipe
+
+        $ hour = 1
+        $ day += 1
+        
+        if day == 10:
+            $ day = 0
+
+        if week > 5:
+            $ week = 1
+            $ month += 1
+
+        scene bg room_morning with horizontalwipe
+
+        if purevn.developer == True:
+            jump purevn_debug_jump_to_choice
+    
+        window show
+        return
 
     if stat_stress >= 50 and challenge_day < 20:
 
@@ -3282,11 +3304,6 @@ label purevn_act_sleep:
     pause 1.0
     
     call diceroll from _call_diceroll_25_purevn
-    
-    if is_purevn():
-        $ renpy.pause(1.5)
-        
-        jump act_sleep_repeat
 
     if haveitem_alpacablanket == True and roll >= 50:
         $ floatingstat = 11-hour
@@ -3333,10 +3350,6 @@ label purevn_act_sleep_repeat:
         xpos 0.5 ypos 0.5
     with dissolve
 
-    if is_purevn() and purevn.developer == True:
-        call purevn_debug_jump_to_choice from _call_purevn_debug_jump_to_choice_sleep
-        jump purevn_purevn_act_sleep_repeat_end
-
     if day == 0:
         $ week += 1
 
@@ -3349,8 +3362,6 @@ label purevn_act_sleep_repeat:
     if week > 5:
         $ week = 1
         $ month += 1
-
-label purevn_purevn_act_sleep_repeat_end:
                         
     $ renpy.pause(0.5)
     
