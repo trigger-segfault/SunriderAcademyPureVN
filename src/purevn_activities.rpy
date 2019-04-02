@@ -3260,6 +3260,9 @@ label purevn_act_sleep:
         
         scene black with horizontalwipe
 
+        if day == 0:
+            $ week += 1
+
         $ hour = 1
         $ day += 1
         

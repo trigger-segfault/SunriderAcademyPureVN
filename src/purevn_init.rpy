@@ -7,7 +7,7 @@ init python:
         # The version of this PureVN mod file
         @property
         def version(self):
-            return 'v0.3.0.0' # Constant
+            return 'v0.3.0.1' # Constant
 
         # The current version of the PureVN class that you loaded the save from
         def __init__(self):
