@@ -4,12 +4,6 @@ init +2 python:
 
     # Hijack the beginning of the class_selection label (which is not called or jumped to)
     def purevn_label_callback(label, abnormal):
-        # Make sure PureVN is defined or upgrade PureVN structure
-        #if purevn == None:
-        #    purevn = PureVN()
-        #elif purevn == False or purevn == True:
-        #    raise Exception("PureVN ({0}) is not compatible with pre-release v0.1.0.0!".format(PureVN().version))
-
         # Make sure to call the original label callback too
         purevn_original_label_callback(label, abnormal)
 
