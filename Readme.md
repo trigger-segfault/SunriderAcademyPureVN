@@ -49,9 +49,9 @@ To deploy the Ren'Py script(s) and archive(s) to an installation directory, crea
 Auto-Activity is the logic implemented to decide where to go during each activity in order to encounter all events. The decisions made are based on information gained from [tomak's Steam Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=426915574). Auto-Activity does not perform any activity during the first 2 hours on days off.
 
 * **Common Route:** `finished`
-* ![Ava Arc](preview/ava_small_24.png) **Ava Route:** `untested` <sup>(There shouldn't be anything to test, it's all automatic)</sup>
+* ![Ava Arc](preview/ava_small_24.png) **Ava Route:** `finished` <sup>(There shouldn't be anything to test, it's all automatic)</sup>
 * ![Asaga Arc](preview/asaga_small_24.png) **Asaga Route:** `finished`
-* ![Chigara Arc](preview/chigara_small_24.png) **Chigara Route:** `untested`
+* ![Chigara Arc](preview/chigara_small_24.png) **Chigara Route:** `finished`
 * ![Sola Arc](preview/sola_small_24.png) **Sola Route:** `finished`
 
 ## Choice Outcome
