@@ -7,7 +7,7 @@ init python:
         # The version of this PureVN mod file
         @property
         def version(self):
-            return 'v0.3.0.1' # Constant
+            return 'v1.0.0.0' # Constant
 
         # The current version of the PureVN class that you loaded the save from
         def __init__(self):
@@ -65,7 +65,7 @@ init python:
     ### PureVN Update Functions
         
     def purevn_update():
-        # No new versions to update from yet
+        # No version updates required yet
 
         # Assign the the version we updated to
         purevn.current_version = purevn.version
@@ -166,31 +166,37 @@ label purevn_full_stats:
     $ stat_intelligence = 500
     $ stat_charisma = 500
     $ stat_stress = 0
-    $ stat_money = 500
-    $ stat_luck = 500
+    $ stat_money = 200
+    $ stat_luck = 200
     # Handled by Choice Outcome
     #$ stat_grade = 100
     #$ stat_prestige = 500
     $ stat_homework = 0
 
-    $ stat_kendo_member = 100
-    $ stat_kendo_readiness = 500
-    $ stat_kendo_morale = 500
+    # Make sure we don't unlock Club Recruiter, Club Trainer, or Rich!!!
 
-    $ stat_science_member = 100
-    $ stat_science_readiness = 500
-    $ stat_science_morale = 500
+    $ stat_kendo_member = 60
+    $ stat_kendo_readiness = 300
+    $ stat_kendo_morale = 300
 
-    $ stat_swim_member = 100
-    $ stat_swim_readiness = 500
-    $ stat_swim_morale = 500
+    $ stat_science_member = 60
+    $ stat_science_readiness = 300
+    $ stat_science_morale = 300
+
+    $ stat_swim_member = 60
+    $ stat_swim_readiness = 300
+    $ stat_swim_morale = 300
+
+    # Everyone's Kayto CANNOT be unlocked via PureVN unless the mode is disabled halfway through.
+    # This is because the trigger for the achievement only comes after shopping
+    # or getting intel from your sister. None of these are reachable with PureVN.
 
     # Above 100 so rollback on affection still won't trigger conversations
-    $ affection_sola = 500
-    $ affection_asaga = 500
-    $ affection_ava = 500
-    $ affection_chigara = 500
-    $ affection_maray = 500
+    $ affection_sola = 150
+    $ affection_asaga = 150
+    $ affection_ava = 150
+    $ affection_chigara = 150
+    $ affection_maray = 150
 
     # Force Waifu Mode
     $ difficulty = 0
