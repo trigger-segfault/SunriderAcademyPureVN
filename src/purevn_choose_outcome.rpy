@@ -36,7 +36,7 @@ label purevn_choice_outcome_win_0:
 # Exam/Final Exam Outcome
 label purevn_choice_outcome_grade:
     if purevn.choice_outcome == False:
-        jump purevn_choice_outcome_grade_90
+        jump purevn_choice_outcome_grade_99
 
     # Don't allow unlocking of Genius achievement
     $ choice1_text = "High Marks"
