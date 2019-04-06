@@ -1,6 +1,6 @@
 # Sunrider Academy PureVN Mod
 
-[![Latest Release](https://img.shields.io/github/release-pre/trigger-death/SunriderAcademyPureVN.svg?style=flat&label=version)](https://github.com/trigger-death/GrisaiaSpriteViewer/releases/latest)
+[![Latest Release](https://img.shields.io/github/release-pre/trigger-death/SunriderAcademyPureVN.svg?style=flat&label=version)](https://github.com/trigger-death/SunriderAcademyPureVN/releases/latest)
 [![Latest Release Date](https://img.shields.io/github/release-date-pre/trigger-death/SunriderAcademyPureVN.svg?style=flat&label=released)](https://github.com/trigger-death/SunriderAcademyPureVN/releases/latest)
 [![Total Downloads](https://img.shields.io/github/downloads/trigger-death/SunriderAcademyPureVN/total.svg?style=flat)](https://github.com/trigger-death/SunriderAcademyPureVN/releases)
 [![Creation Date](https://img.shields.io/badge/created-march%202019-A642FF.svg?style=flat)](https://github.com/trigger-death/SunriderAcademyPureVN/commit/26464c07eab6544c8f300f8ae2965e5acfa535f4)
