@@ -20,7 +20,7 @@ purevn.choice_outcome = False # Disable Choice Outcome if PureVN Mode is enabled
 purevn_status()  # Display whether PureVN Mode or Choice Outcome are enabled
 ```
 
-**Choice Outcome** allows the player to choose the outcome of scenarios that are normally fixed in PureVN Mode. This allows you to encounter more dialogue choices than you would with fixed high stats. Making use of Choice Outcome will allow the player to access every bad end aside from hospitalization due to sickness.
+**Choice Outcome** allows the player to choose the outcome of scenarios that are normally fixed in PureVN Mode, and rely on character stats in the normal gameplay. This allows you to encounter more unique dialogue than you would with fixed high stats. Making use of Choice Outcome will allow the player to access every bad end aside from hospitalization due to sickness.
 
 PureVN **will not** interfere with gameplay when **PureVN Mode** is disabled. If gameplay while PureVN Mode is disabled is different in anyway, then please report it in the issues section.
 
