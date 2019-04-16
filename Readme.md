@@ -8,41 +8,51 @@
 
 PureVN is a mod to *optionally* eliminate all non-visual novel elements in [Sunrider Academy](https://vndb.org/v16221/chars) for a nice, smooth, *non-carpal-tunnel-inducing* story. As with any game mod, make sure to backup your saves before installation for maximum safety measures.
 
+As of [v2.0.0.0](https://github.com/trigger-death/SunriderAcademyPureVN/releases/tag/2.0.0.0), PureVN supports the [Sunrider Academy Mod Interface](http://forum.loveinspace.moe/thread/625/sunrider-academy-mod-interface). Also as of [v2.0.0.0](https://github.com/trigger-death/SunriderAcademyPureVN/releases/tag/2.0.0.0), PureVN cannot be enabled or disabled without starting a new game. The benefit, is any game played without PureVN Mode, will function perfectly even after installing the mod.
+
 <p align="center"><img alt="Sunrider Academy PureVN Mod Logo" src="preview/purevn_logo.png"></p>
 
-When starting a new game PureVN will ask you if you want to enabled **PureVN Mode** just before choosing your character class. There are also console commands to change settings at any time:
+When starting a new game PureVN will ask you if you want to enabled **PureVN Mode** just before choosing your character class. If you have [Sunrider Academy Mod Interface](http://forum.loveinspace.moe/thread/625/sunrider-academy-mod-interface) installed, then you can access PureVN from the Mod menu instead. There are also console commands to change the Choice Outcome setting at any time:
 
 ```py
-purevn_disable() # Disable PureVN Mode and Choice Outcome
-purevn_enable()  # Enable PureVN Mode and Disable Choice Outcome
-purevn_choice_outcome_enable() # Enable PureVN Mode and Choice Outcome
+purevn.choice_outcome = True  # Enable Choice Outcome if PureVN Mode is enabled.
+purevn.choice_outcome = False # Disable Choice Outcome if PureVN Mode is enabled.
 purevn_status()  # Display whether PureVN Mode or Choice Outcome are enabled
 ```
 
 **Choice Outcome** allows the player to choose the outcome of scenarios that are normally fixed in PureVN Mode. This allows you to encounter more dialogue choices than you would with fixed high stats. Making use of Choice Outcome will allow the player to access every bad end aside from hospitalization due to sickness.
 
-PureVN *should not* interfere with gameplay when **PureVN Mode** is disabled. If gameplay while PureVN Mode is disabled is different in anyway, then please report it in the issues section.
+PureVN **will not** interfere with gameplay when **PureVN Mode** is disabled. If gameplay while PureVN Mode is disabled is different in anyway, then please report it in the issues section.
 
 ## Installation
 
-Installing is as easy as dragging the `purevn.rpy` and `purevn.rpa` files into the `%INSTALLDIR%/game/` directory.<br/>
-Uninstalling requires you remove `purevn.rpy`, `purevn.rpyc` <sup>(if it exists)</sup>, and `purevn.rpa` from the same directory.
+Installing is as easy as dragging the `game/` folder in zip file into the `%INSTALLDIR%/` directory and choose to merge the folders.<br/>
+Uninstalling requires you remove the `%INSTALLDIR%/game/mods/purevn/` folder. Do not delete the `mods` folder if you have other mods installed.
 
-**Important Note:** Any save that is played while PureVN is installed will be dependent on the mod, and crash if the mod is uninstalled. ~~This is because PureVN overrides the activities in Sunrider Academy and *most* of the time, the game will be nested within some sort of activity (because events are also triggered inside activities).~~ This is because whether or not you activate PureVN Mode, the game will still require the PureVN settings to be stored, and thus crash due to missing these.
-
-~~The only way for a save to work after uninstalling the mod is to make sure the script is somewhere in the dayloop. The dayloop is any time where the character monologues something in-between activities. I.E. *"It's morning. Time for school."*, *"It's the weekend."*, *"Lunch time. Where should I eat?"*, *"Extra-curricular clubs are now in session."*, *"Club hours are over for today."*, *"I fell into bed and quickly went to sleep."*.~~
+**Note:** Installing PureVN will render any saves played with PureVN Mode non-functional. They will crash the game moment you load the save.
 
 ## How to Build
 
-First you must download [rpatool](https://github.com/Shizmob/rpatool) and place the script in the root project directory. After that, building is as simple as running `python make.py`.
+First you must download [rpatool](https://github.com/Shizmob/rpatool) and place the script in the root project directory. After that, building is as simple as running `python make.py --build`.
 
-To deploy the Ren'Py script(s) and archive(s) to an installation directory, create `deploydir.txt` and list each location to deploy to on a separate line. These files should **not** direct to the `game/` subfolder as this is done automatically. Use the following switches when running `make.py` for deployment:
+To deploy the Ren'Py script(s) and archive(s) to an installation directory, create `deploydir.txt` and list each location to deploy to on a separate line. Lines can be ignored by prefixing them with `>`. These files **must** direct to the `%INSTALLDIR%/` folder, and not a subfolder of the game. Use the following switches when running `make.py` for deployment:
 
-|Switch|Action|
-|:--|:--|
-|`-d`|Cleanup and Deploy combined `purevn.rpy` and `purevn.rpa`|
-|`-dbg`|Cleanup and Deploy source `purevn_*.rpy` files and `purevn.rpa`|
-|`-c`|Cleanup and remove `purevn.rpy` and `purevn.rpa` from `build/`|
+```
+usage: python make.py [-b|-d|-dbg|-c] [-o [OUT='deploydir.txt']]
+
+A python script for comiling Ren'Py mods.
+
+optional arguments:
+  -b, --build        Build modules and rpas.
+  -d, --deploy       Build and deploy modules and rpas.
+  -dbg, --debug      Deploy source files and rpas.
+  -c, --clean        Cleanup all deployed files (except large rpas).
+  -o OUT, --out OUT  Specify the file listing directories to deploy to.
+  -h, --help         Print this help and exit.
+
+You may only pass up to one [-b|-d|-dbg|-c|-h] switch to make.py. In the 'OUT'
+deployment file, lines starting with '>' are ignored.
+```
 
 ## Auto-Activity Progress
 

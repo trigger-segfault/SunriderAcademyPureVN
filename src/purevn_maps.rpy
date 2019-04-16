@@ -3,10 +3,8 @@ screen purevn_route_map:
 
     imagebutton:
         xpos 1350 ypos 950
-        #idle "UI/bonus_done_base.png"
-        #hover "UI/bonus_done_hover.png"
-        idle "UI/purevn_go_home_base.png"
-        hover "UI/purevn_go_home_hover.png"
+        idle "mods/purevn/UI/go_home_base.png"
+        hover "mods/purevn/UI/go_home_hover.png"
         action (Hide("purevn_route_map"),SetField(purevn,"no_route",True),Jump("purevn_choose_afterschool"))
         hover_sound "Sounds/hover1.ogg"
         activate_sound "Sounds/button1.ogg"
