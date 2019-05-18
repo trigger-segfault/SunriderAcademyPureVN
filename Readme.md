@@ -4,6 +4,7 @@
 [![Latest Release Date](https://img.shields.io/github/release-date-pre/trigger-death/SunriderAcademyPureVN.svg?style=flat&label=released)](https://github.com/trigger-death/SunriderAcademyPureVN/releases/latest)
 [![Total Downloads](https://img.shields.io/github/downloads/trigger-death/SunriderAcademyPureVN/total.svg?style=flat)](https://github.com/trigger-death/SunriderAcademyPureVN/releases)
 [![Creation Date](https://img.shields.io/badge/created-march%202019-A642FF.svg?style=flat)](https://github.com/trigger-death/SunriderAcademyPureVN/commit/26464c07eab6544c8f300f8ae2965e5acfa535f4)
+[![Love in Space Forums](https://img.shields.io/badge/love%20in%20space-forums-C75051.svg?style=flat)](http://forum.loveinspace.moe/thread/631/sunrider-academy-purevn-activity-completion)
 [![Discord](https://img.shields.io/discord/436949335947870238.svg?style=flat&logo=discord&label=chat&colorB=7389DC&link=https://discord.gg/vB7jUbY)](https://discord.gg/vB7jUbY)
 
 PureVN is a mod to *optionally* eliminate all non-visual novel elements in [Sunrider Academy](https://vndb.org/v16221/chars) for a nice, smooth, *non-carpal-tunnel-inducing* story. As with any game mod, make sure to backup your saves before installation for maximum safety measures.
@@ -20,7 +21,7 @@ purevn.choice_outcome = False # Disable Choice Outcome if PureVN Mode is enabled
 purevn_status()  # Display whether PureVN Mode or Choice Outcome are enabled
 ```
 
-**Choice Outcome** allows the player to choose the outcome of scenarios that are normally fixed in PureVN Mode. This allows you to encounter more dialogue choices than you would with fixed high stats. Making use of Choice Outcome will allow the player to access every bad end aside from hospitalization due to sickness.
+**Choice Outcome** allows the player to choose the outcome of scenarios that are normally fixed in PureVN Mode, and rely on character stats in the normal gameplay. This allows you to encounter more unique dialogue than you would with fixed high stats. Making use of Choice Outcome will allow the player to access every bad end aside from hospitalization due to sickness.
 
 PureVN **will not** interfere with gameplay when **PureVN Mode** is disabled. If gameplay while PureVN Mode is disabled is different in anyway, then please report it in the issues section.
 
