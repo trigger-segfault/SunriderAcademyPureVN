@@ -18,13 +18,14 @@
 		"[python]": {
 			"editor.insertSpaces": true,
 			"editor.tabSize": 4,
-			"editor.useTabStops": true
+			"editor.useTabStops": true,
+			"editor.wordWrap": "on"
 		},
 		"[renpy]": {
 			"editor.insertSpaces": true,
 			"editor.tabSize": 4,
 			"editor.useTabStops": true,
-			"editor.wordWrap": true
+			"editor.wordWrap": "on"
 		},
 		"search.useIgnoreFiles": false,
 		"files.exclude": {
