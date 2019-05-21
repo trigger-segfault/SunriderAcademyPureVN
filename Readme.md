@@ -9,7 +9,7 @@
 
 PureVN is a mod to *optionally* eliminate all non-visual novel elements in [Sunrider Academy](https://vndb.org/v16221/chars) for a nice, smooth, *non-carpal-tunnel-inducing* story. As with any game mod, make sure to backup your saves before installation for maximum safety measures.
 
-As of [v2.0.0.0](https://github.com/trigger-death/SunriderAcademyPureVN/releases/tag/2.0.0.0), PureVN supports the [Sunrider Academy Mod Interface](http://forum.loveinspace.moe/thread/625/sunrider-academy-mod-interface). Also as of [v2.0.0.0](https://github.com/trigger-death/SunriderAcademyPureVN/releases/tag/2.0.0.0), PureVN cannot be enabled or disabled without starting a new game. The benefit, is any game played without PureVN Mode, will function perfectly even after installing the mod.
+As of [v2.0.0.0](https://github.com/trigger-death/SunriderAcademyPureVN/releases/tag/2.0.0.0), PureVN supports the [Sunrider Academy Mod Interface](http://forum.loveinspace.moe/thread/625/sunrider-academy-mod-interface). Also as of [v2.0.0.0](https://github.com/trigger-death/SunriderAcademyPureVN/releases/tag/2.0.0.0), PureVN cannot be enabled or disabled without starting a new game. The benefit, is any game played without PureVN Mode, will function perfectly even after uninstalling the mod.
 
 <p align="center"><img alt="Sunrider Academy PureVN Mod Logo" src="preview/purevn_logo.png"></p>
 
